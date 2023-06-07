@@ -1,0 +1,112 @@
+.p-panelmenu .p-panelmenu-header>a {
+    border: none;
+    background-color: white;
+  }
+  
+  .p-panelmenu .p-panelmenu-header.p-highlight>a {
+    color: #3f51b5;
+  }
+  
+  .p-panelmenu .p-panelmenu-header>a:focus {
+    box-shadow: none;
+  }
+  
+  .menu-title {
+    font-size: 14px;
+  }
+  
+  .select-role {
+    font-size: 12px;
+    min-width: 150px;
+    /*
+    color: white;
+    background: none;*/
+  }
+  
+  .select-role option {
+    color: black;
+    font-size: 14px;
+  }
+  
+  .select-role option :hover {
+    background-color: #3f51b5;
+  }
+  
+  .active>.mat-list-item-content {
+    color: #3f51b5;
+    font-weight: 900;
+    background-color: #f6f9fc;
+  
+  
+  }
+  
+  .mat-list-item-content {
+    font-size: 15px;
+    cursor: pointer;
+  
+  
+  }
+  
+  .mat-list-item :hover {
+    background-color: #f6f9fc;
+  
+  
+  }
+  
+  .active {
+    color: #3f51b5;
+    font-weight: 900;
+  }
+  
+  .p-menuitem-text {
+    font-size: 13px;
+  }
+  
+  .p-panelmenu-icon {
+    order: 1;
+  }
+  
+  .p-menuitem-text {
+    flex-grow: 1;
+  }
+  
+  a.active {
+    color: #fff;
+    background-color: green;
+  }
+  
+  mat-list-item {
+    cursor: pointer;
+  }
+  
+  .close_session {
+    width: 30px !important;
+    height: 30px !important;
+    margin-left: -18px !important;
+    margin-top: -5px !important;
+  }
+  
+  #back-to-top {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50px;
+    font-size: 16px;
+    z-index: 999999;
+  }
+  p-button .font-size-button > button{
+    font-size: 122px!important;
+  }
+  .font-size-button{
+    color: white;
+    cursor:pointer;
+    font-weight: normal!important;
+    margin-left: 10px;
+  }
+  
+  #mat-sidenav{
+    width: 230px;
+  }

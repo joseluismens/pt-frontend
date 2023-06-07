@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card" style="width: 400px">
+      <div class="card-header">Inicio de sesión</div>
+      <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="login()">
+          <div class="row">
+            <div class="col-12">
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  formControlName="email"
+                  id="email"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid':
+                      form.get('email')?.invalid && form.get('email')?.touched
+                  }"
+                />
+                <div
+                  class="invalid-feedback"
+                  *ngIf="form.get('email')?.invalid && form.get('email')?.touched"
+                >
+                  Por favor, ingresa un email válido.
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input
+                  type="password"
+                  formControlName="password"
+                  id="password"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid':
+                      form.get('password')?.invalid &&
+                      form.get('password')?.touched
+                  }"
+                />
+                <div
+                  class="invalid-feedback"
+                  *ngIf="
+                    form.get('password')?.invalid &&
+                    form.get('password')?.touched
+                  "
+                >
+                  Por favor, ingresa una contraseña.
+                </div>
+              </div>
+            </div>
+            <div class="col mt-2">
+              <button type="submit" class="btn btn-primary float-end">
+                Aceptar
+              </button>
+            </div>
+          </div>
+          <!-- Card content goes here -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

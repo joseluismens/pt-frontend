@@ -1,0 +1,45 @@
+<div class="container mt-3">
+
+   
+    <div class="row mt-4">
+        <h5>Solicitude de Conversiones </h5>
+    </div>
+    <div class="row mt-3">
+        <p-table [value]="conversiones" #dt [tableStyle]="{ 'width':'100%' }"  [exportHeader]="'customExportHeader'" >
+            <ng-template pTemplate="caption">
+                <div class="flex">
+                    <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()" class="p-button-success mr-2" pTooltip="XLS" tooltipPosition="bottom"></button>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Monto orginial</th>
+                    <th>Fecha de UF</th>
+                    <th>Valor UF</th>
+                    <th>Monto Convertido</th>
+                    <th>Fecha de Actividad </th>
+                    <th>Usuario</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-conversion>
+                <tr>
+                    <td>{{ conversion.original_amount }} UF</td>
+                    <td>{{ conversion.date_conversion  | date:'dd/MM/yyyy'}}</td>
+                    <td>$ {{ conversion.uf | clpFormat }}</td>
+                    <td>$ {{ conversion.conversion_amount | clpFormat }}</td>
+                    <td>{{ conversion.created_at  | date: "dd/MM/yyyy | hh:mm:ss a"}}</td>
+                    <td>{{conversion.usuario.fullname}}</td>
+
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="5" class="text-center">Sin registros.</td>
+                </tr>
+            </ng-template>
+
+        </p-table>
+    </div>
+
+</div>

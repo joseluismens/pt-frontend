@@ -1,0 +1,110 @@
+<div>
+    <mat-toolbar color="primary" id="mat-toolbar">
+        <div class="col-xs-12 col-md-12">
+            <div class="row">
+                <div class=" col-6">
+                    <button (click)="!snav.toggle()" style="background: none; border: none;">
+                       <i class="pi pi-align-justify " style="color: white;font-size: 20px;"
+                       ></i>
+                    </button>
+                    <span class="mt-5">Conversor de unidades</span>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="row float-end">
+                     
+                        
+                            <div class="col" >
+                                {{fullname}}
+                        
+                            </div>
+                      
+                            <div class="col">
+                                <button mat-mini-fab color="warn" title="Cerrar Sesión" class="close_session" style="background-color: red; color: white; border-radius: 5px;"
+                                    (click)="logout()">
+                                    <mat-icon style="font-size: 23px; margin-top: -7px;">logout</mat-icon>
+                                </button>
+
+                            </div>
+                      
+                    </div>
+                </div>
+                
+                
+
+            </div>
+
+        </div>
+
+
+
+    </mat-toolbar>
+
+    <mat-sidenav-container id="mat-sidebar-container" color="primary"
+        [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+
+        <mat-sidenav id="mat-sidenav" [opened]=" mobileQuery.matches" #snav
+            [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches">
+
+            <!--Start menu dinamic -->
+            <mat-list style="overflow-x: hidden!important;" role="list" *ngFor="let item of items">
+                <div *ngIf="item.items; then subMenuBlock else itemBlock"></div>
+                <ng-template #itemBlock>
+
+                    <mat-list-item role="listitem" class="ms-1" [routerLink]="item.route" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{ exact: true }">
+                        <mat-icon>{{item.icon}}</mat-icon>&nbsp;{{item.label}}
+                    </mat-list-item>
+
+                </ng-template>
+                <ng-template #subMenuBlock>
+                    <mat-expansion-panel [class.mat-elevation-z0]="true" dense>
+                        <mat-expansion-panel-header>
+                            <mat-icon>{{item.icon}} </mat-icon>&nbsp;{{item.label}}
+                        </mat-expansion-panel-header>
+                        <mat-nav-list dense *ngFor="let option of item.items">
+                            <mat-list-item routerLinkActive="light-blue accent-2" [routerLink]="option.route">
+                                <mat-icon>
+                                    <span class="material-symbols-outlined"></span>
+                                </mat-icon>
+                                <span matBadgeColor="warn" matBadgeOverlap="false" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }">{{option.label}}
+                                </span>
+
+                            </mat-list-item>
+
+                        </mat-nav-list>
+
+
+
+                    </mat-expansion-panel>
+
+
+                </ng-template>
+            </mat-list>
+            <!--end menu dinamic -->
+
+
+
+
+
+        </mat-sidenav>
+
+
+        <mat-sidenav-content #contenidoInterno style="overflow-x:hidden" (scroll)="detectScroll($event)">
+            <div #divContenidoInterno>
+
+                <div class="row ">
+                    <div class="col-md-12">
+
+                        <router-outlet></router-outlet>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
+
