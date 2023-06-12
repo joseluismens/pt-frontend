@@ -2,8 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.2.
 
-install Node.js by msi `https://nodejs.org/en/download`
-intall angular by npm `npm install -g @angular/cli`
+install Node.js by msi `https://nodejs.org/en/download`.
+install angular by npm `npm install -g @angular/cli` .
 
 ## Development server
 
