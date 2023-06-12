@@ -39,8 +39,9 @@ export class ConversionComponent implements OnInit {
 
 
             this.toastService.showSuccess ('Conversión realizada exitosamente')
+            this.disabled = false;
             this.ngOnInit()
-            console.log(res);
+
             
           },
           error:(error:any)=>{
