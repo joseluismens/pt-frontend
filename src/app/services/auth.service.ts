@@ -5,11 +5,12 @@ import { firstValueFrom, tap } from 'rxjs';
 import jwt_decode from "jwt-decode";
 
 import { ToastService } from './message.service';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  base_url = 'https://app-c2944116-5499-49d1-b19c-3b501556cfa1.cleverapps.io/api'
+  base_url = environment.base_url
   redirectUrl:string;
 
   
